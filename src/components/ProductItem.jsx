@@ -1,31 +1,21 @@
-// import { useDispatch } from "react-redux";
-// import { addToCart } from "../redux/cartSlice";
-// import { Link } from "react-router-dom";
+import "./style.css";
+function ProductItem(props){
+    return(
+        <>
+        <div className="product-card">
+            <img
+            src={props.ProductDetail.thumbnail}
+            alt={props.ProductDetail.title}
+            className="product-cover"
+            />
 
-// const ProductItem = ({ product }) => {
-//   const dispatch = useDispatch();
+            <h1 className="product-title">{props.ProductDetail.title}</h1>
+            <h1 className="product-price">{props.ProductDetail.price}$</h1>
+            <p className="product-description">{props.ProductDetail.description}</p>
+        </div>
+        
 
-//   const handleAddToCart = () => {
-//     dispatch(addToCart(product));
-//   };
-
-//   return (
-//     <div className="product-card">
-//       <img
-//         src={product.thumbnail}
-//         alt={product.title}
-//         loading="lazy"
-//         width="150"
-//       />
-
-//       <h3>{product.title}</h3>
-//       <p>₹ {product.price}</p>
-
-//       <Link to={`/product/${product.id}`}>View Details</Link>
-
-//       <button onClick={handleAddToCart}>Add to Cart</button>
-//     </div>
-//   );
-// };
-
-// export default ProductItem;
+        </>
+    )
+}
+export default ProductItem;
