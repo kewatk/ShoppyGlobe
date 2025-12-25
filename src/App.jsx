@@ -1,14 +1,14 @@
-import { useFetchProducts } from './utils/useFetchProducts';
-import ProductList from './components/ProductList'
+import { useFetchProducts } from './hooks/useFetchProducts';
+import ProductList from './pages/ProductList'
 function App() {
-  const { Products, error } = useFetchProducts();
+  const { products, error } = useFetchProducts();
 
   if (error) {
     return <p>Error: {error}</p>;
   }
   return (
     <>
-    <ProductList Productdata = {Products}/>
+    <ProductList productdata = {products}/>
     </>
   )
 }
