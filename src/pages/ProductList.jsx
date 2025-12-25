@@ -1,5 +1,5 @@
 import ProductItem from '../components/ProductItem';
-
+import "../style.css";
 function ProductList(props) {
   return (
     <div className="product-list">

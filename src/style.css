@@ -1,0 +1,28 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}.product-item{
+    height: auto;
+    border-color: grey 1px;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    background-color:white;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.product-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+}

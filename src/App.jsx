@@ -1,4 +1,5 @@
 import { useFetchProducts } from './hooks/useFetchProducts';
+import Header from './components/Header';
 import ProductList from './pages/ProductList'
 function App() {
   const { products, error } = useFetchProducts();
@@ -8,6 +9,7 @@ function App() {
   }
   return (
     <>
+    <Header/>
     <ProductList productdata = {products}/>
     </>
   )
