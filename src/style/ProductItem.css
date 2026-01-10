@@ -15,6 +15,7 @@
     transition: transform 0.2s;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    position: relative;
 }
 
 .product-cover{
@@ -51,7 +52,10 @@ color: #777;
     align-items: center;
 }
 
-.header{
-    display: flex;
-    flex-direction: row;
+.add-to-cart {
+  margin-top: auto;
+  margin-bottom: 1px;
+  background: black;
+  color: white;
 }
+
