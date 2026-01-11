@@ -54,8 +54,10 @@ color: #777;
 
 .add-to-cart {
   margin-top: auto;
-  margin-bottom: 1px;
+  margin-bottom: 10px;
   background: black;
   color: white;
+  cursor: pointer;
+  border-radius: 20px;
 }
 

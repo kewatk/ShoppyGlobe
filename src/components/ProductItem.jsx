@@ -9,6 +9,7 @@ function ProductItem({ product }) {
 
       <div className="product-details">
         <h1 className="product-title">{product.title}</h1>
+        <h1 className="product-price">⭐{product.rating}</h1>
         <h1 className="product-price">{product.price}$</h1>
       </div>
 

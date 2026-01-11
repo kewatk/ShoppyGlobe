@@ -1,24 +1,29 @@
-import { useFetchProducts } from './hooks/useFetchProducts';
-import Header from './components/Header';
-import ProductList from './pages/ProductList'
-import NotFound from './pages/NotFound';
-import { Routes, Route } from "react-router-dom";
-import './App.css'
+
+import { useFetchProducts } from "./hooks/useFetchProducts";
+import Header from "./components/Header";
+import ProductList from "./pages/ProductList";
+import { useState } from "react";
+import "./App.css";
+
 function App() {
-  const { products, error } = useFetchProducts();
+  const { products = [], error } = useFetchProducts();
+  const [searchText, setSearchText] = useState("");
 
   if (error) {
     return <p>Error: {error}</p>;
   }
+
+  const filteredProducts = products.filter(product =>
+    product.title.toLowerCase().includes(searchText.toLowerCase())
+  );
+
   return (
     <>
-    <Header setSearchText={products} />
-    <ProductList productdata = {products}/>
-    <Routes>
-      {/* <Route path="/" element={<Home />} /> */}
-    </Routes>
+      <Header setSearchText={setSearchText} />
+      <ProductList productdata={filteredProducts} />
     </>
-  )
+  );
 }
 
 export default App;
+

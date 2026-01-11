@@ -2,16 +2,24 @@ import { IoIosSearch } from "react-icons/io";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoMdHome } from "react-icons/io";
 import { FaBars } from "react-icons/fa";
-<IoMdHome />
 
-function Header() {
+function Header({setSearchText}) {
   return (
-    <nav className="flex dark:bg-gray-800 text-white items-center px-12 h-20 mr-0">
-      <ul className="flex items-center gap-8">
+    <nav className="flex dark:bg-gray-800 text-white items-center px-12 h-20">
+      <ul className="flex items-center gap-8  flex-row-reverse">
         
-        <li className="flex items-center gap-2">
+        <li className="flex items-center gap-2 ms-8">
+
+          <input 
+          type="text" 
+          placeholder="Seacrch products..." 
+          onChange={(e)=>setSearchText(e.target.value)} 
+          className=" text-black bg-amber-50 mx-6"
+          />
+
           <IoIosSearch className="mt-2" />
           <span>Search</span>
+
         </li>
 
         <li className="flex items-center gap-2 cursor-pointer">
