@@ -3,6 +3,7 @@ import { useFetchProducts } from "./hooks/useFetchProducts";
 import Header from "./components/Header";
 import ProductList from "./pages/ProductList";
 import { useState } from "react";
+import ApiCalling from "./components/ApiCalling";
 import "./App.css";
 
 function App() {
@@ -12,13 +13,13 @@ function App() {
   if (error) {
     return <p>Error: {error}</p>;
   }
-
   const filteredProducts = products.filter(product =>
     product.title.toLowerCase().includes(searchText.toLowerCase())
   );
 
   return (
     <>
+    <ApiCalling/>
       <Header setSearchText={setSearchText} />
       <ProductList productdata={filteredProducts} />
     </>
