@@ -8,67 +8,55 @@ import { useCart } from '../components/CartContext';
 
 function Header({setSearchText}) {
 
-  const [isClickHome,setIsClickHome] = useState(false);
+  const [isClickHome, setIsClickHome] = useState(false);
 
   const { getCartCount } = useCart();
   const cartCount = getCartCount();
 
-function changecolore(){
-  setIsClickHome(true);
-}
-
- 
-  const handleHomeClick = () => {
-    changeColor();
-    window.location.href = '/';
-  };
-
-  const handleCartClick = () => {
-    window.location.href = '/cart';
-  };
+  function changecolore(){
+    setIsClickHome(true);
+  }
  
   return (
     <nav className="flex dark:bg-gray-800 text-white items-center px-12 h-20">
-      <ul className="flex items-center gap-8  flex-row-reverse">
+      <ul className="flex items-center gap-8 flex-row-reverse">
         
         <li className="flex items-center gap-2 ms-8">
-
           <input 
-          type="text" 
-          placeholder="Search products..." 
-          onChange={(e)=>setSearchText(e.target.value)} 
-          className=" text-black bg-amber-50 mx-6"
+            type="text" 
+            placeholder="Search products..." 
+            onChange={(e) => setSearchText(e.target.value)} 
+            className="text-black bg-amber-50 mx-6 px-3 py-2 rounded"
           />
-
           <IoIosSearch className="mt-2" />
           <span>Search</span>
+        </li>
 
-        </li>
         <Link to="/">
-                <li className="flex items-center gap-2 cursor-pointer">
-          <IoMdHome />
-          <button onClick={changecolore} className={isClickHome ? "text-gray-500":"text-white"}>Home</button>
-        </li>
+          <li className="flex items-center gap-2 cursor-pointer">
+            <IoMdHome />
+            <button onClick={changecolore} className={isClickHome ? "text-gray-500" : "text-white"}>
+              Home
+            </button>
+          </li>
         </Link>
 
+        {/* add to Cart */}
         <Link to="/cart">
-          <li 
-          className="flex items-center gap-2 cursor-pointer relative"
-          onClick={handleCartClick}
-          >
+          <li className="flex items-center gap-2 cursor-pointer relative">
             <FaShoppingCart className="w-5 h-5" />
             <span>Cart</span>
             {cartCount > 0 && (
               <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
                 {cartCount}
               </span>
-              )}
+            )}
           </li>
         </Link>
         
         <li className="flex items-center gap-2 cursor-pointer">
           <FaBars />
-          <span>Item</span>
+          <span>Menu</span>
         </li>
       </ul>
     </nav>

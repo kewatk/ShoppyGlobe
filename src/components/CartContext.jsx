@@ -1,5 +1,4 @@
-// CartContext.jsx - Create this file to manage cart state globally
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 
 const CartContext = createContext();
 
@@ -14,11 +13,20 @@ export const useCart = () => {
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
+  // Debug: Log whenever cartItems changes
+  useEffect(() => {
+    console.log('🛒 Cart updated:', cartItems);
+    console.log('🛒 Cart count:', cartItems.length);
+  }, [cartItems]);
+
   const addToCart = (product) => {
+    console.log('➕ Adding to cart:', product);
+    
     setCartItems(prevItems => {
       const existingItem = prevItems.find(item => item.id === product.id);
       
       if (existingItem) {
+        console.log('✅ Item already exists, increasing quantity');
         return prevItems.map(item =>
           item.id === product.id
             ? { ...item, quantity: item.quantity + 1 }
@@ -26,6 +34,7 @@ export const CartProvider = ({ children }) => {
         );
       }
       
+      console.log('✅ Adding new item to cart');
       return [...prevItems, { ...product, quantity: 1 }];
     });
   };

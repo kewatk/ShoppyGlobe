@@ -3,6 +3,8 @@ import { FaTrash, FaPlus, FaMinus, FaShoppingBag } from 'react-icons/fa';
 
 function Cart() {
   const { cartItems, removeFromCart, updateQuantity, getCartTotal, clearCart } = useCart();
+    console.log('Cart items:', cartItems);
+  console.log('Cart length:', cartItems.length);
 
   if (cartItems.length === 0) {
     return (
