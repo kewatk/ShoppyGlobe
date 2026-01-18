@@ -1,5 +1,5 @@
 import { IoIosSearch } from "react-icons/io";
-import { FaShoppingCart, FaBars } from "react-icons/fa";
+import { FaShoppingCart } from "react-icons/fa";
 import { IoMdHome } from "react-icons/io";
 import { FaBars } from "react-icons/fa";
 import { useState } from "react";
@@ -12,7 +12,7 @@ function Header({setSearchText}) {
 
   const { getCartCount } = useCart();
   const cartCount = getCartCount();
-  
+
 function changecolore(){
   setIsClickHome(true);
 }
@@ -52,18 +52,18 @@ function changecolore(){
         </Link>
 
         <Link to="/cart">
-        <li 
+          <li 
           className="flex items-center gap-2 cursor-pointer relative"
           onClick={handleCartClick}
-        >
-          <ShoppingCart className="w-5 h-5" />
-          <span>Cart</span>
-          {cartCount > 0 && (
-            <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-              {cartCount}
-            </span>
-          )}
-        </li>
+          >
+            <FaShoppingCart className="w-5 h-5" />
+            <span>Cart</span>
+            {cartCount > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                {cartCount}
+              </span>
+              )}
+          </li>
         </Link>
         
         <li className="flex items-center gap-2 cursor-pointer">
