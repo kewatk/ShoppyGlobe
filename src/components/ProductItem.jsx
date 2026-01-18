@@ -1,4 +1,10 @@
+import { useCart } from '../components/CartContext';
+
 function ProductItem({ product }) {
+  const { addToCart } = useCart();
+    const handleAddToCart = () => {
+    addToCart(product);
+  };
   return (
     <div className="product-card">
       <img
@@ -13,7 +19,10 @@ function ProductItem({ product }) {
         <h1 className="product-price">{product.price}$</h1>
       </div>
 
-      <button className="add-to-cart">
+      <button 
+        className="add-to-cart"
+        onClick={handleAddToCart}
+      >
         Add to Cart
       </button>
 
