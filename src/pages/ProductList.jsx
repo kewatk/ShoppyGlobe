@@ -1,9 +1,11 @@
+import { useOutletContext } from 'react-router-dom';
 import ProductItem from '../components/ProductItem';
 import "../style/ProductItem.css";
-function ProductList(props) {
+function ProductList() {
+  const { filteredProducts } = useOutletContext();
   return (
     <div className="product-list">
-      {props.productdata.map((item) => (
+      {filteredProducts.map((item) => (
         <ProductItem key={item.id} product={item} />
       ))}
     </div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 function NotFound() {
     // Simulating error object for preview
@@ -20,12 +21,12 @@ function NotFound() {
                 <p className="text-gray-600 mb-8 max-w-md mx-auto">
                     {err?.data || "The page you're looking for doesn't exist or has been moved."}
                 </p>
-                <a
-                    href="/"
+                <Link
+                    to="/"
                     className="inline-block bg-blue-400 hover:bg-blue-500 text-white font-bold h-10 w-50 px-8 py-3 rounded-sm transition duration-300 shadow-md hover:shadow-lg"
                 >
                 Go to Home
-                </a>
+                </Link>
             </div>
         </div>
     )

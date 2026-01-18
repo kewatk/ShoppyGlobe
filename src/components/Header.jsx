@@ -3,11 +3,12 @@ import { FaShoppingCart } from "react-icons/fa";
 import { IoMdHome } from "react-icons/io";
 import { FaBars } from "react-icons/fa";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Header({setSearchText}) {
 
   const [isClickHome,setIsClickHome] = useState(false);
-function changeclore(){
+function changecolore(){
   setIsClickHome(true);
 }
  
@@ -19,7 +20,7 @@ function changeclore(){
 
           <input 
           type="text" 
-          placeholder="Seacrch products..." 
+          placeholder="Search products..." 
           onChange={(e)=>setSearchText(e.target.value)} 
           className=" text-black bg-amber-50 mx-6"
           />
@@ -28,11 +29,12 @@ function changeclore(){
           <span>Search</span>
 
         </li>
-
-        <li className="flex items-center gap-2 cursor-pointer">
+        <Link to="/">
+                <li className="flex items-center gap-2 cursor-pointer">
           <IoMdHome />
-          <butto onClick={changeclore} className={isClickHome ? "text-gray-500":"text-white"}>Home</butto>
+          <button onClick={changecolore} className={isClickHome ? "text-gray-500":"text-white"}>Home</button>
         </li>
+        </Link>
 
         <li className="flex items-center gap-2 cursor-pointer">
           <FaShoppingCart />
