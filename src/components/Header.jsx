@@ -12,9 +12,20 @@ function Header({setSearchText}) {
 
   const { getCartCount } = useCart();
   const cartCount = getCartCount();
+  
 function changecolore(){
   setIsClickHome(true);
 }
+
+ 
+  const handleHomeClick = () => {
+    changeColor();
+    window.location.href = '/';
+  };
+
+  const handleCartClick = () => {
+    window.location.href = '/cart';
+  };
  
   return (
     <nav className="flex dark:bg-gray-800 text-white items-center px-12 h-20">
