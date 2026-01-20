@@ -1,3 +1,4 @@
+// App.jsx - Updated with loading state
 import { useFetchProducts } from "./hooks/useFetchProducts";
 import Header from "./components/Header";
 import { useState } from "react";
@@ -5,11 +6,25 @@ import "./App.css";
 import { Outlet } from "react-router-dom";
 
 function App() {
-  const { products = [], error } = useFetchProducts();
+  const { products = [], error, loading } = useFetchProducts();
   const [searchText, setSearchText] = useState("");
 
+  if (loading) {
+    return (
+      <>
+        <Header setSearchText={setSearchText} />
+        <div className="loading-container">Loading products...</div>
+      </>
+    );
+  }
+
   if (error) {
-    return <p>Error: {error}</p>;
+    return (
+      <>
+        <Header setSearchText={setSearchText} />
+        <p className="error-message">Error: {error}</p>
+      </>
+    );
   }
   
   const filteredProducts = products.filter(product =>
@@ -19,7 +34,7 @@ function App() {
   return (
     <>
       <Header setSearchText={setSearchText} />
-      <Outlet context={{ filteredProducts }} />
+      <Outlet context={{ filteredProducts, allProducts: products }} />
     </>
   );
 }

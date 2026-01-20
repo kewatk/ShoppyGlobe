@@ -62,7 +62,7 @@ function Header({setSearchText}) {
 
       {/* Mobile Menu Button - Visible only on small screens */}
       <div className="md:hidden w-full flex justify-between items-center">
-      <span className="text-xl font-bold"></span>
+      <span className="text-xl font-bold">Shop</span>
         <button 
           onClick={toggleMenu}
           className="flex items-center gap-2 cursor-pointer p-2"
