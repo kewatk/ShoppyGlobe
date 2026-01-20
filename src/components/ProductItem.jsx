@@ -2,11 +2,10 @@ import { useCart } from '../components/CartContext';
 
 function ProductItem({ product }) {
   const { addToCart} = useCart();
-  
     const handleAddToCart = () => {
     addToCart(product);
-
   };
+  
   return (
     <div className="product-card">
       <img
